@@ -1,5 +1,5 @@
 ;; init.el --- Emacs configuration
-
+;; Saideeep's Configuration for Emacs
 ;; INSTALL PACKAGES
 ;; --------------------------------------
 
@@ -52,8 +52,9 @@
 
 ;; mode settings
 (set-face-attribute 'default nil :height 100) ;; this font is 1/10 pt
-(setq-default cursor-type 'bar) ;; set cursor to var type
+(setq-default cursor-type 'box) ;; set cursor to var type
 (set-cursor-color "#9247ed") 
+(blink-cursor-mode 0) ;; stop the cursor from blinking
 
 ;;(let ((height (face-attribute 'default :height)))
 ;;  ;; for all linum/nlinum users
@@ -81,6 +82,7 @@
 ;; valid values: number of lines (integer), or percentage out of current
 ;; frame's height (float larger than 0 and smaller than 1)
 (setq which-key-side-window-max-height 0.25)
+
 
 ;;(setq package-check-signature nil)
 ;; ------------------------------------------------------------------
