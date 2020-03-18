@@ -22,7 +22,9 @@
     counsel
     neotree
     which-key
-;;   doom-themes
+    doom-themes
+    rainbow-delimiters
+    jedi
     ))
 
 (mapc #'(lambda (package)
@@ -39,7 +41,6 @@
 (setq ring-bell-function 'ignore)
 
 (setq inhibit-startup-message t) ;; hide the startup message
-(load-theme 'spacemacs-dark t) ;; load material theme
 (global-linum-mode t) ;; enable line numbers globally
 (menu-bar-mode -1) ;; disable menu-bar
 (tool-bar-mode -1) ;; disable tool=bar
@@ -47,22 +48,13 @@
 (electric-pair-mode 1) ;; enable pairing of brackets etc.
 (show-paren-mode 1) ;; highlight matching brackets
 (which-function-mode 1) ;; show current function name
-(company-mode 1) ;; company mode should be enable all the time!
 (which-key-mode 1) ;; enable which-key, shows future key combinate
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; mode settings
-(set-face-attribute 'default nil :height 100) ;; this font is 1/10 pt
+(set-face-attribute 'default nil :height 105) ;; this font is 1/10 pt
 (setq-default cursor-type 'box) ;; set cursor to var type
-(set-cursor-color "#9247ed") 
-(blink-cursor-mode 0) ;; stop the cursor from blinking
-
-;;(let ((height (face-attribute 'default :height)))
-;;  ;; for all linum/nlinum users
-;;  (set-face-attribute 'linum nil :height height)
-;;  ;; only for `linum-relative' users:
-;;  (set-face-attribute 'linum-relative-current-face nil :height height)
-;;  ;; only for `nlinum-relative' users:
-;;  (set-face-attribute 'nlinum-relative-current-face nil :height height))
+(set-cursor-color "#9247ed") (blink-cursor-mode 0) ;; stop the cursor from blinking
 
 ;; ------------------------------------------------------------------
 ;; WHICH-KEY SETTINGS
@@ -84,31 +76,33 @@
 (setq which-key-side-window-max-height 0.25)
 
 
-;;(setq package-check-signature nil)
+(setq package-check-signature nil)
+;;-------------------------------------------------------------------
+;; SPACEMACS THEME
+;;------------------------------------------------------------------
+;;(load-theme 'spacemacs-dark t) ;; load material theme
+
 ;; ------------------------------------------------------------------
 ;; DOOM THEME CONFIG
 ;; ------------------------------------------------------------------
-;;(require 'doom-themes)
+(require 'doom-themes)
 
 ;; Global settings (defaults)
-;;(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-;;      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+      doom-themes-enable-italic t) ; if nil, italics is universally disabled
 
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
-;;(load-theme 'doom-one t)
+(load-theme 'doom-one t)
 
 ;; Enable flashing mode-line on errors
-;;(doom-themes-visual-bell-config)
+(doom-themes-visual-bell-config)
 
 ;; Enable custom neotree theme (all-the-icons must be installed!)
-;;(doom-themes-neotree-config)
-;; or for treemacs users
-;;(setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
-;;(doom-themes-treemacs-config)
+;; (doom-themes-neotree-config)
 
 ;; Corrects (and improves) org-mode's native fontification.
-;;(doom-themes-org-config)
+(doom-themes-org-config)
 
 ;; -------------------------------------------------------------------
 ;; PYTHON CONFIGURATION
@@ -117,10 +111,16 @@
 ;; enable ivy
 (elpy-enable)
 
-
 ;; profile elpy
 ;; use elp-results to view results for profiler
 (elp-instrument-package "elpy-")
+
+;; force python3 RPC; why? cuz its awesome!
+(setq elpy-rpc-python-command "python3")
+
+;; use jedi as backend
+(setq elpy-rpc-backend "jedi")
+
 ;; it seems like elpy is asking for doc too often
 ;; https://github.com/jorgenschaefer/elpy/issues/1287
 ;; wait 0.5 seconds before asking for doc
@@ -142,6 +142,13 @@
   (setenv "WORKON_HOME" workon-home)
   (setenv "VIRTUALENVWRAPPER_HOOK_DIR" workon-home))
 
+
+;;-----------------------------------------------------------------------------
+;; COMPANY COMPLETE
+;;-----------------------------------------------------------------------------
+;;(company-mode 1) ;; company mode should be enable all the time!
+;;(global-set-key (kbd "C-SPC") 'nil)
+;;(global-set-key (kbd "C-SPC") 'company-complete-common)
 ;; -----------------------------------------------------------------------------
 ;; CUSTOM KEYBINDINGS
 ;; -----------------------------------------------------------------------------
@@ -183,10 +190,10 @@
 (global-set-key (kbd "M-m k w") 'delete-window) ;; close current window
 (global-set-key (kbd "M-m k b") 'kill-buffer) ;; close current window
 
-(global-set-key (kbd "M-m <up>") 'windmove-up) ;; select window up
-(global-set-key (kbd "M-m <down>") 'windmove-down) ;; select window down
-(global-set-key (kbd "M-m <left>") 'windmove-left) ;; select window left
-(global-set-key (kbd "M-m <right>") 'windmove-right) ;; select window right
+(global-set-key (kbd "M-m u") 'windmove-up) ;; select window up
+(global-set-key (kbd "M-m d") 'windmove-down) ;; select window down
+(global-set-key (kbd "M-m l") 'windmove-left) ;; select window left
+(global-set-key (kbd "M-m r") 'windmove-right) ;; select window right
 ;; -----------------------------------------------------------------------------
 ;; -----------------------------------------------------------------------------
 
@@ -197,10 +204,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
+ '(package-selected-packages
    (quote
-    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
- '(package-selected-packages (quote (material-theme better-defaults))))
+    (rainbow-delimiters doom-themes which-key neotree counsel spacemacs-theme material-theme py-autopep8 flycheck elpy better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
