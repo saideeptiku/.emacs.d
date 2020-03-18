@@ -119,13 +119,17 @@
 ;; force python3 RPC; why? cuz its awesome!
 (setq elpy-rpc-python-command "python3")
 
+;; ipython3 when you do 'run-python'
+(when (executable-find "ipython3")
+  (setq python-shell-interpreter "ipython3"))
+
 ;; use jedi as backend
 (setq elpy-rpc-backend "jedi")
 
 ;; it seems like elpy is asking for doc too often
 ;; https://github.com/jorgenschaefer/elpy/issues/1287
 ;; wait 0.5 seconds before asking for doc
-(setq eldoc-idle-delay 0.5)
+(setq eldoc-idle-delay 0.2)
 
 ;; use flycheck not flymake with elpy
 (when (require 'flycheck nil t)
@@ -148,8 +152,9 @@
 ;; COMPANY COMPLETE
 ;;-----------------------------------------------------------------------------
 (company-mode 1) ;; company mode should be enable all the time!
-(global-set-key (kbd "C-SPC") 'nil)
-(global-set-key (kbd "C-SPC") 'company-complete-common)
+;; use C-M-i for autocomplete 
+;; (global-set-key (kbd "C-SPC") 'nil)
+;; (global-set-key (kbd "C-SPC") 'company-complete-common)
 (company-quickhelp-mode 1)
 (setq company-quickhelp-delay 1.0)
 (setq company-quickhelp-max-lines 10)
@@ -166,13 +171,8 @@
 
 ;; clean up
 (global-set-key (kbd "C-z") nil) ;; disable minimize
-(global-set-key (kbd "M-m") nil)
+(global-set-key (kbd "M-q") nil)
 (global-set-key (kbd "C-q") 'keyboard-escape-quit)
-
-;; python ops
-(global-set-key (kbd "M-m g t d") 'elpy-goto-definition-other-window) ;; show definition
-(global-set-key (kbd "M-m w o") 'pyvenv-workon) ;; set work environment
-
 
 ;; copy paste fix ups
 (global-set-key (kbd "C-w") 'cut-line-or-region) ;; disable minimize
@@ -181,23 +181,26 @@
 
 
 ;; neotree
-(global-set-key (kbd "M-m n") 'neotree) ;; neotree show
-(global-set-key (kbd "M-m t") 'neotree-toggle) ;; toggle neotree
+(global-set-key (kbd "M-q n") 'neotree) ;; neotree show
+(global-set-key (kbd "M-q t") 'neotree-toggle) ;; toggle neotree
 
 ;; find file
-(global-set-key (kbd "M-m f") 'counsel-find-file)
+(global-set-key (kbd "M-q f") 'counsel-find-file)
 
+;; python ops
+(global-set-key (kbd "M-q g t d") 'elpy-goto-definition-other-window) ;; show definition
+(global-set-key (kbd "M-q w o") 'pyvenv-workon) ;; set work environment
 
 ;; window ops
-(global-set-key (kbd "M-m s w r") 'split-window-right) ;; split window right
-(global-set-key (kbd "M-m s w b") 'split-window-below) ;; split window below
-(global-set-key (kbd "M-m k w") 'delete-window) ;; close current window
-(global-set-key (kbd "M-m k b") 'kill-buffer) ;; close current window
+(global-set-key (kbd "M-q s w r") 'split-window-right) ;; split window right
+(global-set-key (kbd "M-q s w b") 'split-window-below) ;; split window below
+(global-set-key (kbd "M-q k w") 'delete-window) ;; close current window
+(global-set-key (kbd "M-q k b") 'kill-buffer) ;; close current window
 
-(global-set-key (kbd "M-m u") 'windmove-up) ;; select window up
-(global-set-key (kbd "M-m d") 'windmove-down) ;; select window down
-(global-set-key (kbd "M-m l") 'windmove-left) ;; select window left
-(global-set-key (kbd "M-m r") 'windmove-right) ;; select window right
+(global-set-key (kbd "M-q <up>") 'windmove-up) ;; select window up
+(global-set-key (kbd "M-q <down>") 'windmove-down) ;; select window down
+(global-set-key (kbd "M-q <left>") 'windmove-left) ;; select window left
+(global-set-key (kbd "M-q <right>") 'windmove-right) ;; select window right
 ;; -----------------------------------------------------------------------------
 ;; -----------------------------------------------------------------------------
 
