@@ -25,6 +25,7 @@
     doom-themes
     rainbow-delimiters
     jedi
+    company-quickhelp
     ))
 
 (mapc #'(lambda (package)
@@ -146,9 +147,12 @@
 ;;-----------------------------------------------------------------------------
 ;; COMPANY COMPLETE
 ;;-----------------------------------------------------------------------------
-;;(company-mode 1) ;; company mode should be enable all the time!
-;;(global-set-key (kbd "C-SPC") 'nil)
-;;(global-set-key (kbd "C-SPC") 'company-complete-common)
+(company-mode 1) ;; company mode should be enable all the time!
+(global-set-key (kbd "C-SPC") 'nil)
+(global-set-key (kbd "C-SPC") 'company-complete-common)
+(company-quickhelp-mode 1)
+(setq company-quickhelp-delay 1.0)
+(setq company-quickhelp-max-lines 10)
 ;; -----------------------------------------------------------------------------
 ;; CUSTOM KEYBINDINGS
 ;; -----------------------------------------------------------------------------
@@ -204,9 +208,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-quickhelp-delay 1.0)
+ '(company-quickhelp-max-lines 10)
  '(package-selected-packages
    (quote
-    (rainbow-delimiters doom-themes which-key neotree counsel spacemacs-theme material-theme py-autopep8 flycheck elpy better-defaults))))
+    (company-quickhelp rainbow-delimiters doom-themes which-key neotree counsel spacemacs-theme material-theme py-autopep8 flycheck elpy better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
