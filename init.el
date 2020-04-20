@@ -24,7 +24,7 @@
     which-key
     doom-themes
     rainbow-delimiters
-    jedi
+    company-jedi
     company-quickhelp
     ))
 
@@ -124,11 +124,16 @@
 (setq elpy-rpc-python-command "python3")
 
 ;; ipython3 when you do 'run-python'
-(when (executable-find "ipython3")
-  (setq python-shell-interpreter "ipython3"))
+(when (executable-find "python3")
+  (setq python-shell-interpreter "python3"))
 
 ;; use jedi as backend
-(setq elpy-rpc-backend "jedi")
+;;(setq elpy-rpc-backend "jedi")
+
+(defun my/python-mode-hook ()
+    (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 ;; it seems like elpy is asking for doc too often
 ;; https://github.com/jorgenschaefer/elpy/issues/1287
