@@ -55,7 +55,7 @@
 ;; mode settings
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
-                    :height 121
+                    :height 110
                     :weight 'normal
                     :width 'normal)
 (setq-default cursor-type 'box) ;; set cursor to var type
@@ -212,3 +212,17 @@
 (global-set-key (kbd "M-q <right>") 'windmove-right) ;; select window right
 ;; -----------------------------------------------------------------------------
 ;; -----------------------------------------------------------------------------
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (company-quickhelp company-jedi rainbow-delimiters doom-themes which-key neotree counsel spacemacs-theme material-theme py-autopep8 flycheck elpy better-defaults))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
