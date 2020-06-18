@@ -1,0 +1,24 @@
+
+;; ----- smex-history -----
+(
+ hl-todo-mode
+ package-install
+ string-insert-rectangle
+ rectangle-mark-mode
+ gfm-mode
+ undo
+ cd
+)
+
+;; ----- smex-data -----
+(
+ (undo . 1)
+ (package-install . 5)
+ (markdown-fontify-buffer-wiki-links . 1)
+ (gfm-mode . 1)
+ (mmm-mode . 1)
+ (rectangle-mark-mode . 1)
+ (rectangle-left-char . 2)
+ (string-insert-rectangle . 2)
+ (hl-todo-mode . 2)
+)

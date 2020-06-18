@@ -20,7 +20,6 @@
     material-theme
     spacemacs-theme
     counsel
-    smex
     neotree
     which-key
     doom-themes
@@ -112,6 +111,17 @@
 
 ;; Corrects (and improves) org-mode's native fontification.
 (doom-themes-org-config)
+
+;; -------------------------------------------------------------------
+;; MARKDOWN CONFIGURATION
+;; -------------------------------------------------------------------
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 
 ;; -------------------------------------------------------------------
 ;; PYTHON CONFIGURATION
@@ -223,7 +233,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (hl-todo poly-markdown mmm-mode markdown-mode+ markdown-mode company-quickhelp company-jedi rainbow-delimiters doom-themes which-key neotree counsel spacemacs-theme material-theme py-autopep8 flycheck elpy better-defaults))))
+    (smex markdown-mode+ markdown-mode company-quickhelp company-jedi rainbow-delimiters doom-themes which-key neotree counsel spacemacs-theme material-theme py-autopep8 flycheck elpy better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
