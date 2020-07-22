@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- hl-todo-mode
+ describe-font
+ set-frame-font
+ menu-set-font
  package-install
  string-insert-rectangle
  rectangle-mark-mode
  gfm-mode
- undo
- cd
 )
 
 ;; ----- smex-data -----
@@ -21,4 +21,7 @@
  (rectangle-left-char . 2)
  (string-insert-rectangle . 2)
  (hl-todo-mode . 2)
+ (menu-set-font . 1)
+ (set-frame-font . 1)
+ (describe-font . 1)
 )
