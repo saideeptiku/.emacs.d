@@ -39,10 +39,10 @@
 ;; BASIC CUSTOMIZATION
 ;; ------------------------------------------------------------------
 
-;; disable creation of lock files
-;; stops creating #name# files
-;; forget backing up unsaved changes
-(setq create-lockfiles nil)
+;; change location of autosave files
+(setq auto-save-file-name-transforms
+        `((".*" "~/.emacs.d/emacs-saves/" t)))
+
 
 ;; enable and set modes
 ;;(setq visible-bell t) ;; disable the hideous sound that is the bell
