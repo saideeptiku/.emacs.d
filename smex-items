@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
- describe-font
- set-frame-font
- menu-set-font
- package-install
- string-insert-rectangle
- rectangle-mark-mode
- gfm-mode
+ elp-results
+ elp-instrument-package
+ elpy-mode
+ eldoc-mode
+ elpy-config
+ ido-switch-buffer
+ list-buffers
 )
 
 ;; ----- smex-data -----
@@ -24,4 +24,11 @@
  (menu-set-font . 1)
  (set-frame-font . 1)
  (describe-font . 1)
+ (list-buffers . 1)
+ (ido-switch-buffer . 1)
+ (elpy-config . 1)
+ (elp-instrument-package . 5)
+ (elp-results . 5)
+ (eldoc-mode . 3)
+ (elpy-mode . 2)
 )
