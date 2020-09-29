@@ -2,12 +2,12 @@
 ;; ----- smex-history -----
 (
  eval-buffer
- company-mode
- widen
- view-emacs-todo
- elpy-doc
- find-function
- elpy-goto-definition
+ replace-rectangle
+ rectangle-backward-char
+ project-find-file
+ find-file
+ run-python
+ elpy-mode
 )
 
 ;; ----- smex-data -----
@@ -29,6 +29,20 @@
  (find-function . 1)
  (company-mode . 4)
  (view-emacs-todo . 1)
- (eval-buffer . 25)
+ (eval-buffer . 33)
  (widen . 1)
+ (neotree-create-node . 1)
+ (replace-string . 1)
+ (run-python . 5)
+ (python-check . 1)
+ (run-dig . 1)
+ (ipconfig . 1)
+ (previous-line . 1)
+ (todo-mode . 1)
+ (python-mode . 1)
+ (elpy-mode . 1)
+ (find-file . 1)
+ (project-find-file . 1)
+ (replace-rectangle . 5)
+ (rectangle-backward-char . 1)
 )

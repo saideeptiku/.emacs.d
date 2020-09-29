@@ -197,7 +197,7 @@
 (global-set-key (kbd "C-z") 'undo) ;; paste text
 
 ;; company related
-;; C-M-i autocomplete at line
+;; C-M-i autocomplete at line is disabled
 (global-set-key (kbd "M-n") 'company-select-next) ;; company next
 (global-set-key (kbd "M-p") 'company-select-previous) ;; company previous
 
@@ -213,15 +213,29 @@
 (global-set-key (kbd "M-q w o") 'pyvenv-workon) ;; set work environment
 
 ;; window ops
-(global-set-key (kbd "M-q s w r") 'split-window-right) ;; split window right
-(global-set-key (kbd "M-q s w b") 'split-window-below) ;; split window below
-(global-set-key (kbd "M-q k w") 'delete-window) ;; close current window
-(global-set-key (kbd "M-q k b") 'kill-buffer) ;; close current window
+(global-set-key (kbd "M-q w s r") 'split-window-right) ;; split window right
+(global-set-key (kbd "M-q w s b") 'split-window-below) ;; split window below
+(global-set-key (kbd "M-q w k") 'delete-window) ;; close current window
+(global-set-key (kbd "M-q b k") 'kill-buffer) ;; close current window
 
-(global-set-key (kbd "M-w i") 'windmove-up) ;; select window up
-(global-set-key (kbd "M-w k") 'windmove-down) ;; select window down
-(global-set-key (kbd "M-w j") 'windmove-left) ;; select window left
-(global-set-key (kbd "M-w l") 'windmove-right) ;; select window right
+(global-set-key (kbd "M-q i") 'windmove-up) ;; select window up
+(global-set-key (kbd "M-q k") 'windmove-down) ;; select window down
+(global-set-key (kbd "M-q j") 'windmove-left) ;; select window left
+(global-set-key (kbd "M-q l") 'windmove-right) ;; select window right
+
+;; navigate
+;; use I K J L keys to navigate
+(global-set-key (kbd "M-i") 'nil)
+(global-set-key (kbd "M-k") 'nil)
+(global-set-key (kbd "M-j") 'nil)
+(global-set-key (kbd "M-l") 'nil)
+
+(global-set-key (kbd "M-i") 'previous-line)
+(global-set-key (kbd "M-k") 'next-line)
+(global-set-key (kbd "M-j") 'backward-char)
+(global-set-key (kbd "M-l") 'forward-char)
+
+
 ;; -----------------------------------------------------------------------------
 ;; -----------------------------------------------------------------------------
 (custom-set-variables
