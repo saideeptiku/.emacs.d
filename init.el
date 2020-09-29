@@ -218,10 +218,10 @@
 (global-set-key (kbd "M-q k w") 'delete-window) ;; close current window
 (global-set-key (kbd "M-q k b") 'kill-buffer) ;; close current window
 
-(global-set-key (kbd "M-q <up>") 'windmove-up) ;; select window up
-(global-set-key (kbd "M-q <down>") 'windmove-down) ;; select window down
-(global-set-key (kbd "M-q <left>") 'windmove-left) ;; select window left
-(global-set-key (kbd "M-q <right>") 'windmove-right) ;; select window right
+(global-set-key (kbd "M-w i") 'windmove-up) ;; select window up
+(global-set-key (kbd "M-w k") 'windmove-down) ;; select window down
+(global-set-key (kbd "M-w j") 'windmove-left) ;; select window left
+(global-set-key (kbd "M-w l") 'windmove-right) ;; select window right
 ;; -----------------------------------------------------------------------------
 ;; -----------------------------------------------------------------------------
 (custom-set-variables
