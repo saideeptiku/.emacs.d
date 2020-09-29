@@ -39,11 +39,6 @@
 ;; BASIC CUSTOMIZATION
 ;; ------------------------------------------------------------------
 
-;; change location of autosave files
-(setq auto-save-file-name-transforms
-        `((".*" "~/.emacs.d/emacs-saves/" t)))
-
-
 ;; enable and set modes
 ;;(setq visible-bell t) ;; disable the hideous sound that is the bell
 (setq ring-bell-function 'ignore)

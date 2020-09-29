@@ -39,11 +39,6 @@
 ;; BASIC CUSTOMIZATION
 ;; ------------------------------------------------------------------
 
-;; change location of autosave files
-(setq auto-save-file-name-transforms
-        `((".*" "~/.emacs.d/emacs-saves/" t)))
-
-
 ;; enable and set modes
 ;;(setq visible-bell t) ;; disable the hideous sound that is the bell
 (setq ring-bell-function 'ignore)
@@ -62,7 +57,7 @@
 ;; mode settings
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
-                    :height 100
+                    :height 110
                     :weight 'semi-light
                     :width 'normal)
 (setq-default cursor-type 'box) ;; set cursor to var type
@@ -107,7 +102,7 @@
 
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
-(load-theme 'doom-molokai t)
+(load-theme 'doom-one t)
 
 ;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)
@@ -133,10 +128,11 @@
 (setq elpy-rpc-python-command "python3")
 
 ;; ipython3 when you do 'run-python'
-(setq python-shell-interpreter "ipython"
-    python-shell-interpreter-args "--simple-prompt -i --pprint")
-;; (when (executable-find "ipython")
-;;   (setq python-shell-interpreter "python"))
+(when (executable-find "python3")
+  (setq python-shell-interpreter "python3"))
+
+;; use jedi as backend
+;;(setq elpy-rpc-backend "jedi")
 
 (defun my/python-mode-hook ()
     (add-to-list 'company-backends 'company-jedi))
@@ -196,10 +192,6 @@
 (global-set-key (kbd "M-w") 'copy-line-or-region) ;; save buffer
 (global-set-key (kbd "C-z") 'undo) ;; paste text
 
-;; company related
-;; C-M-i autocomplete at line
-(global-set-key (kbd "M-n") 'company-select-next) ;; company next
-(global-set-key (kbd "M-p") 'company-select-previous) ;; company previous
 
 ;; neotree
 (global-set-key (kbd "M-q n") 'neotree) ;; neotree show

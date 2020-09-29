@@ -127,17 +127,25 @@
 
 ;; profile elpy
 ;; use elp-results to view results for profiler
-(elp-instrument-package "elpy-")
+;; (elp-instrument-package "elpy-")
 
 ;; force python3 RPC; why? cuz its awesome!
 (setq elpy-rpc-python-command "python3")
 
 ;; ipython3 when you do 'run-python'
+<<<<<<< Updated upstream
+(when (executable-find "python3")
+  (setq python-shell-interpreter "python3"))
+
+;; use jedi as backend
+;;(setq elpy-rpc-backend "jedi")
+=======
 (setq python-shell-interpreter "ipython"
     python-shell-interpreter-args "--simple-prompt -i --pprint")
 ;; (when (executable-find "ipython")
 ;;   (setq python-shell-interpreter "python"))
 
+>>>>>>> Stashed changes
 (defun my/python-mode-hook ()
     (add-to-list 'company-backends 'company-jedi))
 
@@ -146,7 +154,10 @@
 ;; it seems like elpy is asking for doc too often
 ;; https://github.com/jorgenschaefer/elpy/issues/1287
 ;; wait 0.5 seconds before asking for doc
-(setq eldoc-idle-delay 0.2)
+(setq eldoc-idle-delay 2)
+(setq elpy-autodoc-delay 3)
+(setq elpy-eldoc-show-current-function nil)
+(setq python-shell-completion-native-enable nil)
 
 ;; use flycheck not flymake with elpy
 (when (require 'flycheck nil t)

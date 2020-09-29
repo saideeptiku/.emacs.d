@@ -62,7 +62,7 @@
 ;; mode settings
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
-                    :height 100
+                    :height 110
                     :weight 'semi-light
                     :width 'normal)
 (setq-default cursor-type 'box) ;; set cursor to var type
@@ -107,7 +107,7 @@
 
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
-(load-theme 'doom-molokai t)
+(load-theme 'doom-one t)
 
 ;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)
@@ -127,17 +127,17 @@
 
 ;; profile elpy
 ;; use elp-results to view results for profiler
-(elp-instrument-package "elpy-")
+;; (elp-instrument-package "elpy-")
 
 ;; force python3 RPC; why? cuz its awesome!
 (setq elpy-rpc-python-command "python3")
 
 ;; ipython3 when you do 'run-python'
-(setq python-shell-interpreter "ipython"
-    python-shell-interpreter-args "--simple-prompt -i --pprint")
-;; (when (executable-find "ipython")
-;;   (setq python-shell-interpreter "python"))
+(when (executable-find "python3")
+  (setq python-shell-interpreter "python3"))
 
+;; use jedi as backend
+;;(setq elpy-rpc-backend "jedi")
 (defun my/python-mode-hook ()
     (add-to-list 'company-backends 'company-jedi))
 
@@ -146,7 +146,10 @@
 ;; it seems like elpy is asking for doc too often
 ;; https://github.com/jorgenschaefer/elpy/issues/1287
 ;; wait 0.5 seconds before asking for doc
-(setq eldoc-idle-delay 0.2)
+(setq eldoc-idle-delay 2)
+(setq elpy-autodoc-delay 3)
+(setq elpy-eldoc-show-current-function nil)
+(setq python-shell-completion-native-enable nil)
 
 ;; use flycheck not flymake with elpy
 (when (require 'flycheck nil t)
@@ -196,10 +199,6 @@
 (global-set-key (kbd "M-w") 'copy-line-or-region) ;; save buffer
 (global-set-key (kbd "C-z") 'undo) ;; paste text
 
-;; company related
-;; C-M-i autocomplete at line
-(global-set-key (kbd "M-n") 'company-select-next) ;; company next
-(global-set-key (kbd "M-p") 'company-select-previous) ;; company previous
 
 ;; neotree
 (global-set-key (kbd "M-q n") 'neotree) ;; neotree show
