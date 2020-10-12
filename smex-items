@@ -1,39 +1,39 @@
 
 ;; ----- smex-history -----
 (
+ sphinx-doc
+ hl-todo-mode
  eval-buffer
- replace-rectangle
- rectangle-backward-char
- project-find-file
- find-file
- run-python
- elpy-mode
+ package-install
+ elpy-doc
+ neotree-dir
+ rectangle-mark-mode
 )
 
 ;; ----- smex-data -----
 (
- (undo . 1)
- (package-install . 5)
+ (undo . 2)
+ (package-install . 7)
  (markdown-fontify-buffer-wiki-links . 1)
  (gfm-mode . 1)
  (mmm-mode . 1)
- (rectangle-mark-mode . 1)
+ (rectangle-mark-mode . 3)
  (rectangle-left-char . 2)
  (string-insert-rectangle . 2)
- (hl-todo-mode . 2)
+ (hl-todo-mode . 7)
  (ivy-switch-buffer . 1)
  (tetris . 1)
  (company-select-next . 2)
- (elpy-goto-definition . 1)
- (elpy-doc . 2)
+ (elpy-goto-definition . 2)
+ (elpy-doc . 3)
  (find-function . 1)
- (company-mode . 4)
+ (company-mode . 6)
  (view-emacs-todo . 1)
- (eval-buffer . 33)
+ (eval-buffer . 39)
  (widen . 1)
- (neotree-create-node . 1)
+ (neotree-create-node . 2)
  (replace-string . 1)
- (run-python . 5)
+ (run-python . 6)
  (python-check . 1)
  (run-dig . 1)
  (ipconfig . 1)
@@ -41,8 +41,20 @@
  (todo-mode . 1)
  (python-mode . 1)
  (elpy-mode . 1)
- (find-file . 1)
- (project-find-file . 1)
+ (find-file . 2)
+ (project-find-file . 3)
  (replace-rectangle . 5)
  (rectangle-backward-char . 1)
+ (neotree-dir . 5)
+ (package-refresh-contents . 1)
+ (customize-group . 1)
+ (process-menu-mode . 2)
+ (process-menu-delete-process . 1)
+ (list-processes . 1)
+ (ein:run . 3)
+ (comment-line . 3)
+ (ein:worksheet-execute-cell . 1)
+ (describe-variable . 2)
+ (command-history . 2)
+ (sphinx-doc . 2)
 )

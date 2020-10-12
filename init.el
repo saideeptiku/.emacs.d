@@ -28,6 +28,8 @@
     company-jedi
     company-quickhelp
     markdown-mode
+    sphinx-doc
+    ein
     ))
 
 (mapc #'(lambda (package)
@@ -38,6 +40,8 @@
 ;; -------------------------------------------------------------------
 ;; BASIC CUSTOMIZATION
 ;; ------------------------------------------------------------------
+
+
 
 ;; change location of autosave files
 (setq auto-save-file-name-transforms
@@ -160,11 +164,28 @@
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
+
 (let ((workon-home (expand-file-name "~/.local/share/virtualenvs/")))
   (setenv "WORKON_HOME" workon-home)
   (setenv "VIRTUALENVWRAPPER_HOOK_DIR" workon-home))
 
+(add-hook 'python-mode-hook (lambda ()
+			      (require 'sphinx-doc)
+			      (sphinx-doc-mode t)))
+;;-----------------------------------------------------------------------------
+;; hl-todo setup
+;;-----------------------------------------------------------------------------
+(add-hook 'prog-mode-hook (lambda () (hl-todo-mode 1)))
 
+(setq hl-todo-highlight-punctuation ":"
+		   hl-todo-keyword-faces
+		   `(("TODO"       warning bold)
+		     ("FIXME"      error bold)
+		     ("HACK"       font-lock-constant-face bold)
+		     ("REVIEW"     font-lock-keyword-face bold)
+		     ("NOTE"       success bold)
+		     ("DEPRECATED" font-lock-doc-face bold)))
+;;-----------------------------------------------------------------------------
 ;;-----------------------------------------------------------------------------
 ;; COMPANY COMPLETE
 ;;-----------------------------------------------------------------------------
@@ -174,7 +195,8 @@
 ;; (global-set-key (kbd "C-SPC") 'company-complete-common)
 (company-quickhelp-mode 1)
 (setq company-quickhelp-delay 1.0)
-(setq company-quickhelp-max-lines 10)
+(setq company-quickhelp-max-lines 30)
+
 ;; -----------------------------------------------------------------------------
 ;; CUSTOM KEYBINDINGS
 ;; -----------------------------------------------------------------------------
@@ -218,22 +240,21 @@
 (global-set-key (kbd "M-q w k") 'delete-window) ;; close current window
 (global-set-key (kbd "M-q b k") 'kill-buffer) ;; close current window
 
-(global-set-key (kbd "M-q i") 'windmove-up) ;; select window up
-(global-set-key (kbd "M-q k") 'windmove-down) ;; select window down
-(global-set-key (kbd "M-q j") 'windmove-left) ;; select window left
-(global-set-key (kbd "M-q l") 'windmove-right) ;; select window right
+(global-set-key (kbd "M-q <up>") 'windmove-up) ;; select window up
+(global-set-key (kbd "M-q <down>") 'windmove-down) ;; select window down
+(global-set-key (kbd "M-q <left>") 'windmove-left) ;; select window left
+(global-set-key (kbd "M-q <right>") 'windmove-right) ;; select window right
 
-;; navigate
-;; use I K J L keys to navigate
-(global-set-key (kbd "M-i") 'nil)
-(global-set-key (kbd "M-k") 'nil)
-(global-set-key (kbd "M-j") 'nil)
-(global-set-key (kbd "M-l") 'nil)
-
-(global-set-key (kbd "M-i") 'previous-line)
-(global-set-key (kbd "M-k") 'next-line)
-(global-set-key (kbd "M-j") 'backward-char)
-(global-set-key (kbd "M-l") 'forward-char)
+;; ein specific commands; jupyter notebook
+(global-set-key (kbd "M-q i g") 'ein:run)
+(global-set-key (kbd "M-q i s") 'ein:stop)
+(global-set-key (kbd "M-q i i") 'ein:notebook-kernel-interrupt-command-km)
+(global-set-key (kbd "M-q i r") 'ein:notebook-restart-session-command-km)
+(global-set-key (kbd "M-q i a") 'ein:worksheet-insert-cell-above-km)
+(global-set-key (kbd "M-q i b") 'ein:worksheet-insert-cell-below-km)
+(global-set-key (kbd "M-q i t") 'ein:worksheet-toggle-cell-type-km)
+(global-set-key (kbd "M-q i d d") 'ein:worksheet-delete-cell)
+(global-set-key (kbd "M-q i e") 'ein:worksheet-execute-cell-km)
 
 
 ;; -----------------------------------------------------------------------------
@@ -243,9 +264,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ein:output-area-inlined-images t)
  '(package-selected-packages
    (quote
-    (hl-todo poly-markdown mmm-mode markdown-mode+ markdown-mode company-quickhelp company-jedi rainbow-delimiters doom-themes which-key neotree counsel spacemacs-theme material-theme py-autopep8 flycheck elpy better-defaults))))
+    (ein hl-todo poly-markdown mmm-mode markdown-mode+ markdown-mode company-quickhelp company-jedi rainbow-delimiters doom-themes which-key neotree counsel spacemacs-theme material-theme py-autopep8 flycheck elpy better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
