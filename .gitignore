@@ -4,4 +4,5 @@ elpy/
 emacs-autosaves/\#*
 emacs-backups/
 auto-save-list/
+session*
 \#*
