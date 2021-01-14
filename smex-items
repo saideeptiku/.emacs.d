@@ -1,39 +1,39 @@
 
 ;; ----- smex-history -----
 (
- sphinx-doc
- hl-todo-mode
- eval-buffer
- package-install
- elpy-doc
- neotree-dir
- rectangle-mark-mode
+ replace-string
+ elpy-config
+ kill-buffer
+ buffer-enable-undo
+ undo-only
+ undo
+ indent-for-tab-command
 )
 
 ;; ----- smex-data -----
 (
- (undo . 2)
+ (undo . 5)
  (package-install . 7)
  (markdown-fontify-buffer-wiki-links . 1)
  (gfm-mode . 1)
  (mmm-mode . 1)
- (rectangle-mark-mode . 3)
+ (rectangle-mark-mode . 5)
  (rectangle-left-char . 2)
  (string-insert-rectangle . 2)
  (hl-todo-mode . 7)
  (ivy-switch-buffer . 1)
  (tetris . 1)
  (company-select-next . 2)
- (elpy-goto-definition . 2)
- (elpy-doc . 3)
+ (elpy-goto-definition . 3)
+ (elpy-doc . 4)
  (find-function . 1)
  (company-mode . 6)
  (view-emacs-todo . 1)
  (eval-buffer . 39)
  (widen . 1)
- (neotree-create-node . 2)
- (replace-string . 1)
- (run-python . 6)
+ (neotree-create-node . 4)
+ (replace-string . 21)
+ (run-python . 13)
  (python-check . 1)
  (run-dig . 1)
  (ipconfig . 1)
@@ -43,9 +43,9 @@
  (elpy-mode . 1)
  (find-file . 2)
  (project-find-file . 3)
- (replace-rectangle . 5)
+ (replace-rectangle . 12)
  (rectangle-backward-char . 1)
- (neotree-dir . 5)
+ (neotree-dir . 10)
  (package-refresh-contents . 1)
  (customize-group . 1)
  (process-menu-mode . 2)
@@ -56,5 +56,28 @@
  (ein:worksheet-execute-cell . 1)
  (describe-variable . 2)
  (command-history . 2)
- (sphinx-doc . 2)
+ (sphinx-doc . 5)
+ (ein:stop . 2)
+ (ansi-term . 1)
+ (term . 1)
+ (python-shell-send-file . 3)
+ (save-buffer . 1)
+ (elpy-shell-send-file . 2)
+ (python-shell-send-defun . 1)
+ (save-some-buffers . 1)
+ (rename-file . 1)
+ (battery . 3)
+ (display-battery-mode . 2)
+ (neotree-delete-node . 4)
+ (neotree-rename-node . 2)
+ (string-rectangle . 1)
+ (elpy-config . 2)
+ (flycheck-compile . 1)
+ (ein:notebook-restart-session-command-km . 1)
+ (indent-region . 1)
+ (indent-for-tab-command . 1)
+ (undo-only . 1)
+ (buffer-enable-undo . 1)
+ (ein:notebook-kernel-interrupt-command-km . 1)
+ (kill-buffer . 1)
 )

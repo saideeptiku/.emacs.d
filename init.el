@@ -30,6 +30,7 @@
     markdown-mode
     sphinx-doc
     ein
+    hl-todo
     ))
 
 (mapc #'(lambda (package)
@@ -41,12 +42,11 @@
 ;; BASIC CUSTOMIZATION
 ;; ------------------------------------------------------------------
 
-
-
 ;; change location of autosave files
 (setq auto-save-file-name-transforms
-        `((".*" "~/.emacs.d/emacs-saves/" t)))
-
+        `((".*" "~/.emacs.d/emacs-autosaves/" t)))
+;; backup in one place. flat, no tree structure
+(setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backups/")))
 
 ;; enable and set modes
 ;;(setq visible-bell t) ;; disable the hideous sound that is the bell
@@ -131,21 +131,22 @@
 
 ;; profile elpy
 ;; use elp-results to view results for profiler
-(elp-instrument-package "elpy-")
+;; (elp-instrument-package "elpy-")
 
 ;; force python3 RPC; why? cuz its awesome!
 (setq elpy-rpc-python-command "python3")
 
 ;; ipython3 when you do 'run-python'
-(setq python-shell-interpreter "ipython"
-    python-shell-interpreter-args "--simple-prompt -i --pprint")
-;; (when (executable-find "ipython")
+;; (setq python-shell-interpreter "ipython"
+;;     python-shell-interpreter-args "--simple-prompt -i --pprint")
+;; (when (executable-find "python")
 ;;   (setq python-shell-interpreter "python"))
 
 (defun my/python-mode-hook ()
     (add-to-list 'company-backends 'company-jedi))
 
-(add-hook 'python-mode-hook 'my/python-mode-hook)
+;; TODO: IDK what this line does, commenting
+;;(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 ;; it seems like elpy is asking for doc too often
 ;; https://github.com/jorgenschaefer/elpy/issues/1287
@@ -164,19 +165,21 @@
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
-
+;; set path to virtual environments
 (let ((workon-home (expand-file-name "~/.local/share/virtualenvs/")))
   (setenv "WORKON_HOME" workon-home)
   (setenv "VIRTUALENVWRAPPER_HOOK_DIR" workon-home))
 
+;; enable sphynx mode for doc generation
 (add-hook 'python-mode-hook (lambda ()
 			      (require 'sphinx-doc)
 			      (sphinx-doc-mode t)))
+
+(add-hook 'elpy-mode-hook (lambda () (highlight-indentation-mode 1)))
 ;;-----------------------------------------------------------------------------
 ;; hl-todo setup
 ;;-----------------------------------------------------------------------------
 (add-hook 'prog-mode-hook (lambda () (hl-todo-mode 1)))
-
 (setq hl-todo-highlight-punctuation ":"
 		   hl-todo-keyword-faces
 		   `(("TODO"       warning bold)
@@ -191,8 +194,6 @@
 ;;-----------------------------------------------------------------------------
 (company-mode 1) ;; company mode should be enable all the time!
 ;; use C-M-i for autocomplete 
-;; (global-set-key (kbd "C-SPC") 'nil)
-;; (global-set-key (kbd "C-SPC") 'company-complete-common)
 (company-quickhelp-mode 1)
 (setq company-quickhelp-delay 1.0)
 (setq company-quickhelp-max-lines 30)
@@ -216,7 +217,8 @@
 ;; copy paste fix ups
 (global-set-key (kbd "C-w") 'cut-line-or-region) ;; disable minimize
 (global-set-key (kbd "M-w") 'copy-line-or-region) ;; save buffer
-(global-set-key (kbd "C-z") 'undo) ;; paste text
+(global-set-key (kbd "C-z") 'undo) ;; undo
+(global-set-key (kbd "C-M-z") 'redo) ;; redo
 
 ;; company related
 ;; C-M-i autocomplete at line is disabled
@@ -232,7 +234,7 @@
 
 ;; python ops
 (global-set-key (kbd "M-q g t d") 'elpy-goto-definition-other-window) ;; show definition
-(global-set-key (kbd "M-q w o") 'pyvenv-workon) ;; set work environment
+(global-set-key (kbd "M-q w o") 'pyvenv-workon) ;; set work
 
 ;; window ops
 (global-set-key (kbd "M-q w s r") 'split-window-right) ;; split window right
@@ -248,13 +250,13 @@
 ;; ein specific commands; jupyter notebook
 (global-set-key (kbd "M-q i g") 'ein:run)
 (global-set-key (kbd "M-q i s") 'ein:stop)
-(global-set-key (kbd "M-q i i") 'ein:notebook-kernel-interrupt-command-km)
-(global-set-key (kbd "M-q i r") 'ein:notebook-restart-session-command-km)
-(global-set-key (kbd "M-q i a") 'ein:worksheet-insert-cell-above-km)
-(global-set-key (kbd "M-q i b") 'ein:worksheet-insert-cell-below-km)
-(global-set-key (kbd "M-q i t") 'ein:worksheet-toggle-cell-type-km)
-(global-set-key (kbd "M-q i d d") 'ein:worksheet-delete-cell)
-(global-set-key (kbd "M-q i e") 'ein:worksheet-execute-cell-km)
+;;(global-set-key (kbd "M-q i i") 'ein:notebook-kernel-interrupt-command-km)
+;; (global-set-key (kbd "M-q i r") 'ein:notebook-restart-session-command-km)
+;; (global-set-key (kbd "M-q i a") 'ein:worksheet-insert-cell-above-km)
+;; (global-set-key (kbd "M-q i b") 'ein:worksheet-insert-cell-below-km)
+;; (global-set-key (kbd "M-q i t") 'ein:worksheet-toggle-cell-type-km)
+;; (global-set-key (kbd "M-q i d d") 'ein:worksheet-delete-cell)
+;; (global-set-key (kbd "M-q i e") 'ein:worksheet-execute-cell-km)
 
 
 ;; -----------------------------------------------------------------------------

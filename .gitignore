@@ -1,6 +1,7 @@
 snippets/
 elpa/
 elpy/
-emacs-saves/\#*
+emacs-autosaves/\#*
+emacs-backups/
 auto-save-list/
 \#*
