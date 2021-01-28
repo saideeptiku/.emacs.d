@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ ediff-directories
+ counsel-load-theme
+ load-theme
  replace-string
  elpy-config
  kill-buffer
  buffer-enable-undo
- undo-only
- undo
- indent-for-tab-command
 )
 
 ;; ----- smex-data -----
@@ -80,4 +80,7 @@
  (buffer-enable-undo . 1)
  (ein:notebook-kernel-interrupt-command-km . 1)
  (kill-buffer . 1)
+ (load-theme . 1)
+ (counsel-load-theme . 1)
+ (ediff-directories . 1)
 )

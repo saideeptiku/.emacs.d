@@ -145,8 +145,8 @@
 (defun my/python-mode-hook ()
     (add-to-list 'company-backends 'company-jedi))
 
-;; TODO: IDK what this line does, commenting
-;;(add-hook 'python-mode-hook 'my/python-mode-hook)
+;;TODO IDK what this line does
+(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 ;; it seems like elpy is asking for doc too often
 ;; https://github.com/jorgenschaefer/elpy/issues/1287
@@ -266,6 +266,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(ein:output-area-inlined-images t)
  '(package-selected-packages
    (quote
