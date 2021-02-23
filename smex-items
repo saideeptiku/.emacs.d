@@ -1,19 +1,19 @@
 
 ;; ----- smex-history -----
 (
- ediff-directories
- counsel-load-theme
- load-theme
  replace-string
- elpy-config
- kill-buffer
- buffer-enable-undo
+ counsel-load-theme
+ tetris
+ package-install
+ company-mode
+ eval-buffer
+ package-delete
 )
 
 ;; ----- smex-data -----
 (
  (undo . 5)
- (package-install . 7)
+ (package-install . 11)
  (markdown-fontify-buffer-wiki-links . 1)
  (gfm-mode . 1)
  (mmm-mode . 1)
@@ -22,17 +22,17 @@
  (string-insert-rectangle . 2)
  (hl-todo-mode . 7)
  (ivy-switch-buffer . 1)
- (tetris . 1)
+ (tetris . 4)
  (company-select-next . 2)
  (elpy-goto-definition . 3)
  (elpy-doc . 4)
  (find-function . 1)
- (company-mode . 6)
+ (company-mode . 13)
  (view-emacs-todo . 1)
- (eval-buffer . 39)
+ (eval-buffer . 42)
  (widen . 1)
  (neotree-create-node . 4)
- (replace-string . 21)
+ (replace-string . 31)
  (run-python . 13)
  (python-check . 1)
  (run-dig . 1)
@@ -41,12 +41,12 @@
  (todo-mode . 1)
  (python-mode . 1)
  (elpy-mode . 1)
- (find-file . 2)
+ (find-file . 3)
  (project-find-file . 3)
  (replace-rectangle . 12)
  (rectangle-backward-char . 1)
  (neotree-dir . 10)
- (package-refresh-contents . 1)
+ (package-refresh-contents . 2)
  (customize-group . 1)
  (process-menu-mode . 2)
  (process-menu-delete-process . 1)
@@ -56,7 +56,7 @@
  (ein:worksheet-execute-cell . 1)
  (describe-variable . 2)
  (command-history . 2)
- (sphinx-doc . 5)
+ (sphinx-doc . 6)
  (ein:stop . 2)
  (ansi-term . 1)
  (term . 1)
@@ -71,7 +71,7 @@
  (neotree-delete-node . 4)
  (neotree-rename-node . 2)
  (string-rectangle . 1)
- (elpy-config . 2)
+ (elpy-config . 4)
  (flycheck-compile . 1)
  (ein:notebook-restart-session-command-km . 1)
  (indent-region . 1)
@@ -80,7 +80,18 @@
  (buffer-enable-undo . 1)
  (ein:notebook-kernel-interrupt-command-km . 1)
  (kill-buffer . 1)
- (load-theme . 1)
- (counsel-load-theme . 1)
+ (load-theme . 63)
+ (counsel-load-theme . 14)
  (ediff-directories . 1)
+ (elpy-rpc-reinstall-virtualenv . 1)
+ (list-buffers . 1)
+ (goto-line . 1)
+ (neotree-refresh . 2)
+ (markdown-mode . 1)
+ (markdown-preview . 3)
+ (describe-font . 2)
+ (menu-set-font . 16)
+ (all-the-icons-install-fonts . 1)
+ (all-the-icons-insert . 1)
+ (package-delete . 1)
 )

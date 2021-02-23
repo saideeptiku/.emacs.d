@@ -65,10 +65,13 @@
 
 ;; mode settings
 (set-face-attribute 'default nil
-                    :family "Source Code Pro"
+		    ;;:family "Source Code Pro"
+		    :family "Cascadia Code"
                     :height 100
-                    :weight 'semi-light
-                    :width 'normal)
+                    :weight 'semi-bold
+                    :width 'normal
+		    )
+
 (setq-default cursor-type 'box) ;; set cursor to var type
 (set-cursor-color "#9247ed") (blink-cursor-mode 0) ;; stop the cursor from blinking
 (toggle-scroll-bar -1) ;; disable scrollbar
@@ -111,13 +114,14 @@
 
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
-(load-theme 'doom-molokai t)
+(load-theme 'doom-horizon t)
 
 ;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)
 
 ;; Enable custom neotree theme (all-the-icons must be installed!)
-;; (doom-themes-neotree-config)
+;;(doom-themes-neotree-config)
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 ;; Corrects (and improves) org-mode's native fontification.
 (doom-themes-org-config)
@@ -268,11 +272,11 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+    ("71e5acf6053215f553036482f3340a5445aee364fb2e292c70d9175fb0cc8af7" "d6603a129c32b716b3d3541fc0b6bfe83d0e07f1954ee64517aa62c9405a3441" "990e24b406787568c592db2b853aa65ecc2dcd08146c0d22293259d400174e37" "730a87ed3dc2bf318f3ea3626ce21fb054cd3a1471dcd59c81a4071df02cb601" "2cdc13ef8c76a22daa0f46370011f54e79bae00d5736340a5ddfe656a767fddf" "a3b6a3708c6692674196266aad1cb19188a6da7b4f961e1369a68f06577afa16" "4bca89c1004e24981c840d3a32755bf859a6910c65b829d9441814000cf6c3d0" "77113617a0642d74767295c4408e17da3bfd9aa80aaa2b4eeb34680f6172d71a" "e6ff132edb1bfa0645e2ba032c44ce94a3bd3c15e3929cdf6c049802cf059a2a" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "6b80b5b0762a814c62ce858e9d72745a05dd5fc66f821a1c5023b4f2a76bc910" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(ein:output-area-inlined-images t)
  '(package-selected-packages
    (quote
-    (ein hl-todo poly-markdown mmm-mode markdown-mode+ markdown-mode company-quickhelp company-jedi rainbow-delimiters doom-themes which-key neotree counsel spacemacs-theme material-theme py-autopep8 flycheck elpy better-defaults))))
+    (all-the-icons ein hl-todo poly-markdown mmm-mode markdown-mode+ markdown-mode company-quickhelp company-jedi rainbow-delimiters doom-themes which-key counsel spacemacs-theme material-theme py-autopep8 flycheck elpy better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
