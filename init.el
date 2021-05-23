@@ -66,7 +66,7 @@
 ;; mode settings
 (set-face-attribute 'default nil
 		    ;;:family "Source Code Pro"
-		    :family "Cascadia Code"
+		    ;;:family "Cascadia Code"
                     :height 100
                     :weight 'semi-bold
                     :width 'normal
